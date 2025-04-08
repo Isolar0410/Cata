@@ -14,6 +14,7 @@
     </header>
 
     <main>
+        <!-- Selección de usuario -->
         <section id="welcome">
             <h2>Seleccione su Rol</h2>
             <div class="buttons">
@@ -22,7 +23,7 @@
             </div>
         </section>
 
-        <!-- Vista para el Maestro Ronero -->
+        <!-- Inicio de sesión del Maestro Ronero -->
         <section id="mrLogin" class="hidden">
             <h2>Acceso para el Maestro Ronero</h2>
             <input type="password" id="passwordMr" placeholder="Clave de Admin">
@@ -30,12 +31,37 @@
             <p id="mrError" class="error hidden">Clave incorrecta, intenta de nuevo.</p>
         </section>
 
-        <!-- Vista para el Invitado -->
-        <section id="guestRegister" class="hidden">
-            <h2>Registro de Invitados</h2>
-            <input type="text" id="guestName" placeholder="Nombre">
-            <input type="text" id="guestLastName" placeholder="Apellido">
-            <button id="btnRegisterGuest">Registrarse</button>
+        <!-- Configuración de la cata (solo MR) -->
+        <section id="setupCata" class="hidden">
+            <h2>Configuración de Cata</h2>
+            <label for="numRones">Cantidad de rones a catar:</label>
+            <input type="number" id="numRones" min="1" max="10">
+            <button id="btnStartCata">Iniciar Cata</button>
+        </section>
+
+        <!-- Votación (MR e invitados) -->
+        <section id="voting" class="hidden">
+            <h2>Votación</h2>
+            <label for="purity">Pureza:</label>
+            <input type="number" id="purity" min="2" max="10"><br>
+
+            <label for="view">Vista:</label>
+            <input type="number" id="view" min="2" max="10"><br>
+
+            <label for="taste">Gusto:</label>
+            <input type="number" id="taste" min="4" max="20"><br>
+
+            <label for="olfactory">Olfato:</label>
+            <input type="number" id="olfactory" min="2" max="25"><br>
+
+            <button id="submitVote">Enviar Votación</button>
+        </section>
+
+        <!-- Finalizar Cata y Resultados -->
+        <section id="results" class="hidden">
+            <h2>Resultados Finales</h2>
+            <p id="finalResults"></p>
+            <button id="btnEndCata">Finalizar Cata</button>
         </section>
     </main>
 
