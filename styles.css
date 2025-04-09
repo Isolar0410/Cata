@@ -1,40 +1,31 @@
+/* General */
 body {
     font-family: 'Georgia', serif;
     background-color: #f8f3e9;
     color: #4b3832;
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
+/* Header */
 header {
     background-color: #a67d5d;
     color: white;
     padding: 2em;
 }
 
-header h1 {
-    font-size: 2.5em;
-}
-
+/* Botones y secciones */
 .buttons button {
     background-color: #d8a047;
-    border: none;
-    padding: 12px 24px;
     color: white;
-    font-size: 1.2em;
-    margin: 1em;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
     cursor: pointer;
-    border-radius: 5px;
 }
 
+/* Ocultar elementos */
 .hidden {
     display: none;
-}
-
-footer {
-    background-color: #4b3832;
-    color: white;
-    text-align: center;
-    padding: 1em;
 }
