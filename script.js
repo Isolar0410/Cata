@@ -1,6 +1,5 @@
 // Variables y elementos
 let guestData = [];
-let totalScores = [];
 let numRones = 0;
 
 const btnMr = document.getElementById("btnMr");
@@ -14,6 +13,8 @@ const btnLoginMr = document.getElementById("btnLoginMr");
 const btnRegisterGuest = document.getElementById("btnRegisterGuest");
 const submitGuestVote = document.getElementById("submitGuestVote");
 const btnEndCata = document.getElementById("btnEndCata");
+const guestMessage = document.getElementById("guestMessage");
+const resultsData = document.getElementById("resultsData");
 
 // Mostrar registro de invitados
 btnGuest.addEventListener("click", () => {
@@ -32,6 +33,7 @@ btnRegisterGuest.addEventListener("click", () => {
         alert(`Invitado registrado: ${name} ${lastName} - ${numRones} rones a catar.`);
         guestRegister.classList.add("hidden");
         guestVoting.classList.remove("hidden");
+        guestMessage.classList.add("hidden");
     } else {
         alert("Complete todos los campos correctamente.");
     }
@@ -47,12 +49,19 @@ submitGuestVote.addEventListener("click", () => {
     if (purity && view && taste && olfactory && numRones > 0) {
         const total = purity + view + taste + olfactory;
         guestData[guestData.length - 1].scores.push(total);
-        alert(`Puntuación registrada: ${total}`);
         numRones--;
+        alert(`Puntuación registrada: ${total}. Rones restantes: ${numRones}`);
+
+        // Reiniciar campos de votación
+        document.getElementById("purity").value = "";
+        document.getElementById("view").value = "";
+        document.getElementById("taste").value = "";
+        document.getElementById("olfactory").value = "";
 
         if (numRones === 0) {
             guestVoting.classList.add("hidden");
-            alert("Has completado todas las puntuaciones.");
+            guestMessage.textContent = "Cata finalizada. Gracias por participar.";
+            guestMessage.classList.remove("hidden");
         }
     } else {
         alert("Complete todos los campos correctamente.");
@@ -69,7 +78,7 @@ btnLoginMr.addEventListener("click", () => {
             guest =>
                 `<p>${guest.name} ${guest.lastName}: ${guest.scores.join(", ")}</p>`
         ).join("");
-        document.getElementById("resultsData").innerHTML = resultsHTML;
+        resultsData.innerHTML = resultsHTML;
     } else {
         alert("Clave incorrecta.");
     }
